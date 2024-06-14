@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travelapp/view/auth/register.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -16,7 +17,6 @@ class _LoginViewState extends State<LoginView> {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-          
             children: [
               SizedBox(height: 120),
               Image.asset("assets/images/logo.png"),
@@ -75,13 +75,19 @@ class _LoginViewState extends State<LoginView> {
               ),
               SizedBox(height: 20),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => RegisterView(),
+                    ),
+                  );
+                },
                 child: Text(
                   "Sign Up",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
-                    
                   ),
                 ),
               ),
