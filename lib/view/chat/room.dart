@@ -27,7 +27,8 @@ class _RoomState extends State<Room> {
           ),
         ),
       ),
-      body: ListView.builder(
+      body:
+       ListView.builder(
           itemCount: 10,
           itemBuilder: (context, index) {
             return Padding(
@@ -70,6 +71,7 @@ class _RoomState extends State<Room> {
               ),
             );
           }),
+   
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.white,
         elevation: 5,

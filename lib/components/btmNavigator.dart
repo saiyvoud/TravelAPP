@@ -3,6 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:travelapp/components/color.dart';
 import 'package:travelapp/view/chat/room.dart';
 import 'package:travelapp/view/home/home.dart';
+import 'package:travelapp/view/notification/notification.dart';
+import 'package:travelapp/view/post/post.dart';
 import 'package:travelapp/view/profile/profile.dart';
 
 class BtmNavigator extends StatefulWidget {
@@ -17,14 +19,8 @@ class _BtmNavigatorState extends State<BtmNavigator> {
   List children = [
     HomeView(),
     Room(),
-    Container(
-      height: 100,
-      decoration: BoxDecoration(color: primaryColor),
-    ),
-    Container(
-      height: 100,
-      decoration: BoxDecoration(color: primaryColor),
-    ),
+    Post(),
+    NotificationView(),
     Profile(),
   ];
   ontTap(index) {
@@ -43,26 +39,35 @@ class _BtmNavigatorState extends State<BtmNavigator> {
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("assets/icons/home.svg",color: primaryColor,),
-            label: ""
-          ),
+              icon: SvgPicture.asset(
+                "assets/icons/home.svg",
+                color: primaryColor,
+              ),
+              label: ""),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("assets/icons/comment.svg",color: primaryColor,),
-            label: ""
-          ),
+              icon: SvgPicture.asset(
+                "assets/icons/comment.svg",
+                color: primaryColor,
+              ),
+              label: ""),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("assets/icons/add.svg",color: primaryColor,),
-            label: ""
-          ),
+              icon: SvgPicture.asset(
+                "assets/icons/add.svg",
+                color: primaryColor,
+              ),
+              label: ""),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("assets/icons/bell.svg",color: primaryColor,),
-            label: ""
-          ),
+              icon: SvgPicture.asset(
+                "assets/icons/bell.svg",
+                color: primaryColor,
+              ),
+              label: ""),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("assets/icons/user.svg",color: primaryColor,),
-            label: ""
-          ),
-          
+              icon: SvgPicture.asset(
+                "assets/icons/user.svg",
+                color: primaryColor,
+              ),
+              label: ""),
         ],
       ),
     );
