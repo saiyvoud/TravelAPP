@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:travelapp/components/color.dart';
 import 'package:travelapp/components/data.dart';
+import 'package:travelapp/view/home/widget/card_widget.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -34,7 +35,8 @@ class _HomeViewState extends State<HomeView> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
+     
+     body: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(height: 20),
@@ -65,6 +67,20 @@ class _HomeViewState extends State<HomeView> {
                     );
                   }),
             ),
+            ListView.builder(
+                shrinkWrap: true,
+                primary: false,
+                itemCount: 4,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      Divider(
+                        color: Colors.black,
+                      ),
+                      CardWidgets(),
+                    ],
+                  );
+                })
           ],
         ),
       ),

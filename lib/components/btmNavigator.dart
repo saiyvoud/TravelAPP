@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:travelapp/components/color.dart';
+import 'package:travelapp/view/chat/room.dart';
 import 'package:travelapp/view/home/home.dart';
+import 'package:travelapp/view/profile/profile.dart';
 
 class BtmNavigator extends StatefulWidget {
   const BtmNavigator({super.key});
@@ -14,6 +16,7 @@ class _BtmNavigatorState extends State<BtmNavigator> {
   int currentIndex = 0;
   List children = [
     HomeView(),
+    Room(),
     Container(
       height: 100,
       decoration: BoxDecoration(color: primaryColor),
@@ -22,14 +25,7 @@ class _BtmNavigatorState extends State<BtmNavigator> {
       height: 100,
       decoration: BoxDecoration(color: primaryColor),
     ),
-    Container(
-      height: 100,
-      decoration: BoxDecoration(color: primaryColor),
-    ),
-    Container(
-      height: 100,
-      decoration: BoxDecoration(color: primaryColor),
-    ),
+    Profile(),
   ];
   ontTap(index) {
     setState(() {
