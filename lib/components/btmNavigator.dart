@@ -37,6 +37,7 @@ class _BtmNavigatorState extends State<BtmNavigator> {
         currentIndex: currentIndex,
         onTap: ontTap,
         type: BottomNavigationBarType.fixed,
+       
         items: [
           BottomNavigationBarItem(
               icon: SvgPicture.asset(

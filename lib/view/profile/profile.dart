@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:travelapp/components/color.dart';
+import 'package:travelapp/view/auth/login.dart';
+import 'package:travelapp/view/profile/widget/edit_profile.dart';
 import 'package:travelapp/view/profile/widget/myPost.dart';
 import 'package:travelapp/view/profile/widget/mySave.dart';
 import 'package:travelapp/view/profile/widget/myVideo.dart';
@@ -38,11 +40,22 @@ class _ProfileState extends State<Profile> {
                   ),
                 ),
                 actions: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: SvgPicture.asset(
-                      "assets/icons/search.svg",
-                      color: primaryColor,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LoginView(),
+                        ),
+                      );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      child: SvgPicture.asset(
+                        "assets/icons/exit.svg",
+                        color: primaryColor,
+                        height: 20,
+                      ),
                     ),
                   ),
                 ],
@@ -83,18 +96,28 @@ class _ProfileState extends State<Profile> {
                                 ),
                                 Positioned(
                                     right: 0,
-                                    child: Container(
-                                        height: 20,
-                                        width: 20,
-                                        decoration: BoxDecoration(
-                                            color: Colors.grey,
-                                            borderRadius:
-                                                BorderRadius.circular(20)),
-                                        child: Icon(
-                                          Icons.edit,
-                                          color: Colors.white,
-                                          size: 15,
-                                        )))
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => EditProfile(),
+                                          ),
+                                        );
+                                      },
+                                      child: Container(
+                                          height: 20,
+                                          width: 20,
+                                          decoration: BoxDecoration(
+                                              color: Colors.grey,
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                          child: Icon(
+                                            Icons.edit,
+                                            color: Colors.white,
+                                            size: 15,
+                                          )),
+                                    ))
                               ],
                             ),
                             Column(
@@ -154,7 +177,9 @@ class _ProfileState extends State<Profile> {
                       Container(
                         height: 80,
                         width: 220,
-                        decoration: BoxDecoration(color: Colors.grey.shade200,borderRadius: BorderRadius.circular(10)),
+                        decoration: BoxDecoration(
+                            color: Colors.grey.shade200,
+                            borderRadius: BorderRadius.circular(10)),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Center(

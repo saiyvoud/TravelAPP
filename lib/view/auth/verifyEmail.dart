@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:travelapp/components/btmNavigator.dart';
 import 'package:travelapp/components/color.dart';
-import 'package:travelapp/view/auth/forget.dart';
+import 'package:travelapp/view/auth/confirm.dart';
 import 'package:travelapp/view/auth/register.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class VerifyEmail extends StatefulWidget {
+  const VerifyEmail({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<VerifyEmail> createState() => _VerifyEmailState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _VerifyEmailState extends State<VerifyEmail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +22,14 @@ class _LoginViewState extends State<LoginView> {
           child: Column(
             children: [
               SizedBox(height: 120),
-              Image.asset("assets/images/logo.png"),
+              Text(
+                "ໂປຣໃສ່ ລະຫັດຢືນຢັນຕົວຕົນຈາກ email",
+                style: TextStyle(
+                  color: primaryColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
               SizedBox(height: 10),
               Divider(
                 indent: 50,
@@ -36,56 +43,23 @@ class _LoginViewState extends State<LoginView> {
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(color: Colors.grey)),
                 child: TextFormField(
-                  keyboardType: TextInputType.emailAddress,
+                  keyboardType: TextInputType.number,
                   decoration: InputDecoration(
-                      hintText: "example@gmail.com",
+                      hintText: "xxx-xxx",
                       contentPadding: EdgeInsets.symmetric(horizontal: 15),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10))),
                 ),
               ),
-              SizedBox(height: 10),
-              Container(
-                height: 50,
-                decoration: BoxDecoration(
-                    //color: Colors.amber,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.grey)),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                      hintText: "Password..",
-                      contentPadding: EdgeInsets.symmetric(horizontal: 15),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10))),
-                ),
-              ),
-              SizedBox(height: 10),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ForgetPassword(),
-                    ),
-                  );
-                },
-                child: Row(
-                  children: [
-                    Spacer(),
-                    Text(
-                      "forget password",
-                      style: TextStyle(fontSize: 16, color: primaryColor),
-                    ),
-                  ],
-                ),
-              ),
+             
               SizedBox(height: 20),
+             
               GestureDetector(
                 onTap: () {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => BtmNavigator(),
+                        builder: (context) => ConfirmPassword(),
                       ));
                 },
                 child: Container(
@@ -96,7 +70,7 @@ class _LoginViewState extends State<LoginView> {
                       borderRadius: BorderRadius.circular(10)),
                   child: Center(
                     child: Text(
-                      "Login",
+                      "ສົ່ງ",
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -108,15 +82,10 @@ class _LoginViewState extends State<LoginView> {
               SizedBox(height: 20),
               TextButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => RegisterView(),
-                    ),
-                  );
+                 Navigator.pop(context);
                 },
                 child: Text(
-                  "Sign Up",
+                  "Back",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
@@ -124,7 +93,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
               ),
               SizedBox(height: 10),
-              Text("Go to your new experience")
+              Text("ຖ້າພົບບັນຫາໃຫ້ຕິດຕໍ່ຫາ ແອັດມິນ")
             ],
           ),
         ),

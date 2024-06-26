@@ -12,6 +12,14 @@ class CardWidgets extends StatefulWidget {
 }
 
 class _CardWidgetsState extends State<CardWidgets> {
+  List comment = [
+    {
+      "id": 1,
+      "profile": "assets/images/menu1.jpeg",
+      "username": "Jack Stone",
+      "comment": "hello myy friend",
+    }
+  ];
   @override
   Widget build(BuildContext context) {
     return Column(

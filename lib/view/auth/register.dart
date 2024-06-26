@@ -100,11 +100,12 @@ class _RegisterViewState extends State<RegisterView> {
                           borderRadius: BorderRadius.circular(10))),
                 ),
               ),
+             
               SizedBox(height: 10),
               Container(
                 height: 50,
                 decoration: BoxDecoration(
-                    //color: Colors.amber,
+                   
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(color: Colors.grey)),
                 child: TextFormField(
