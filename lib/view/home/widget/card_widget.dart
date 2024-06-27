@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:readmore/readmore.dart';
 import 'package:travelapp/components/color.dart';
+import 'package:travelapp/view/home/widget/comment.dart';
 
 class CardWidgets extends StatefulWidget {
   const CardWidgets({super.key});
@@ -12,14 +13,6 @@ class CardWidgets extends StatefulWidget {
 }
 
 class _CardWidgetsState extends State<CardWidgets> {
-  List comment = [
-    {
-      "id": 1,
-      "profile": "assets/images/menu1.jpeg",
-      "username": "Jack Stone",
-      "comment": "hello myy friend",
-    }
-  ];
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -43,6 +36,7 @@ class _CardWidgetsState extends State<CardWidgets> {
                   ),
                 ),
               ),
+             
               SizedBox(width: 10),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,10 +98,20 @@ class _CardWidgetsState extends State<CardWidgets> {
                 color: primaryColor,
               ),
               SizedBox(width: 15),
-              SvgPicture.asset(
-                "assets/icons/comment.svg",
-                height: 20,
-                color: primaryColor,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Comment(),
+                    ),
+                  );
+                },
+                child: SvgPicture.asset(
+                  "assets/icons/comment.svg",
+                  height: 20,
+                  color: primaryColor,
+                ),
               ),
               SizedBox(width: 15),
               SvgPicture.asset(
