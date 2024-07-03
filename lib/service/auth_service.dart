@@ -4,34 +4,28 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AuthService {
   FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
-  Future<bool> register({
+  Future<int> register({
     required String firstname,
     required String lastname,
     required String email,
     required String password,
   }) async {
     try {
-      await auth
-          .createUserWithEmailAndPassword(email: email, password: password)
-          .then((value) async {
-        await firestore.collection("user").doc(value.user!.uid).set({
-          "userId": value.user!.uid,
-          "firstname": firstname,
-          "lastname": lastname,
-          "email": email,
-          "password": password
-        }).then((result) {
-          return true;
-        }).catchError((onErr) {
-          print(onErr);
-          return false;
-        });
-      }).catchError((e) {
-        print(e);
+      final result = await auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      if (result.user!.uid.isEmpty) {
+        return 0;
+      }
+      await firestore.collection("user").doc(result.user!.uid).set({
+        "userId": result.user!.uid,
+        "firstname": firstname,
+        "lastname": lastname,
+        "email": email,
+        "password": password
       });
-      return false;
+      return 1;
     } catch (e) {
-      rethrow;
+      return 0;
     }
   }
 
@@ -44,9 +38,9 @@ class AuthService {
         email: email,
         password: password,
       );
-      if(result.user!.uid.isNotEmpty){
-          print(result.user!.uid);
-          return true;
+      if (result.user!.uid.isNotEmpty) {
+        print(result.user!.uid);
+        return true;
       }
       return false;
     } catch (e) {

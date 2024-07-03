@@ -22,9 +22,7 @@ class _RegisterViewState extends State<RegisterView> {
   @override
   Widget build(BuildContext context) {
     return Consumer<UserProvider>(builder: (context, userProvider, child) {
-      if (userProvider.success == true) {
-        return LoginView();
-      }
+    
       return Scaffold(
         backgroundColor: Colors.white,
         body: Form(

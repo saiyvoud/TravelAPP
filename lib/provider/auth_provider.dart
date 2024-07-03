@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:no_context_navigation/no_context_navigation.dart';
 import 'package:travelapp/components/btmNavigator.dart';
+import 'package:travelapp/components/messageHepler.dart';
+import 'package:travelapp/router/router.dart';
 import 'package:travelapp/service/auth_service.dart';
 
 class UserProvider extends ChangeNotifier {
@@ -26,14 +28,23 @@ class UserProvider extends ChangeNotifier {
         email: email,
         password: password,
       );
+      print("=====>$result");
       navService.goBack();
-      if (result == true) {
-        _success = true;
+
+      if (result == 1) {
+        MessageHepler.showSnackBarMessage(
+            isSuccess: true, message: "Register Success");
+
+        navService.pushNamedAndRemoveUntil(RouteAPI.login);
         notifyListeners();
+      } else {
+        MessageHepler.showSnackBarMessage(
+            isSuccess: false, message: "Email Already!");
       }
     } catch (e) {
-      _success = false;
-      notifyListeners();
+      MessageHepler.showSnackBarMessage(
+          isSuccess: false, message: "Email Already!");
+      // notifyListeners();
     }
   }
 
@@ -45,12 +56,12 @@ class UserProvider extends ChangeNotifier {
       final result = await authService.login(email: email, password: password);
       navService.goBack();
       if (result == true) {
-        _success = true;
-        notifyListeners();
+        navService.pushNamedAndRemoveUntil(RouteAPI.bottom);
       }
     } catch (e) {
-      _success = false;
-      notifyListeners();
+      navService.goBack();
+      MessageHepler.showSnackBarMessage(
+          isSuccess: false, message: "ອີເມວ ແລະ ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ");
     }
   }
 }

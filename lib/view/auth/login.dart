@@ -22,9 +22,7 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Consumer<UserProvider>(builder: (context, userProvider, child) {
-      if (userProvider.success == true) {
-        return BtmNavigator();
-      }
+    
       return Scaffold(
         backgroundColor: Colors.white,
         body: Form(
