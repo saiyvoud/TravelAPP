@@ -5,6 +5,7 @@ import 'package:travelapp/components/btmNavigator.dart';
 import 'package:travelapp/components/color.dart';
 import 'package:travelapp/components/loading.dart';
 import 'package:travelapp/provider/auth_provider.dart';
+import 'package:travelapp/view/auth/confirm.dart';
 import 'package:travelapp/view/auth/forget.dart';
 import 'package:travelapp/view/auth/register.dart';
 
@@ -88,7 +89,7 @@ class _LoginViewState extends State<LoginView> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ForgetPassword(),
+                          builder: (context) => ConfirmPassword(),
                         ),
                       );
                     },

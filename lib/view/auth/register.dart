@@ -14,6 +14,7 @@ class RegisterView extends StatefulWidget {
 class _RegisterViewState extends State<RegisterView> {
   bool _eye = true;
   final email = TextEditingController();
+
   final password = TextEditingController();
   final comfirm = TextEditingController();
   final firstname = TextEditingController();
@@ -22,7 +23,6 @@ class _RegisterViewState extends State<RegisterView> {
   @override
   Widget build(BuildContext context) {
     return Consumer<UserProvider>(builder: (context, userProvider, child) {
-    
       return Scaffold(
         backgroundColor: Colors.white,
         body: Form(
@@ -89,7 +89,6 @@ class _RegisterViewState extends State<RegisterView> {
                   Container(
                     height: 50,
                     decoration: BoxDecoration(
-                        //color: Colors.amber,
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(color: Colors.grey)),
                     child: TextFormField(
@@ -108,6 +107,7 @@ class _RegisterViewState extends State<RegisterView> {
                               borderRadius: BorderRadius.circular(10))),
                     ),
                   ),
+                 
                   SizedBox(height: 10),
                   Container(
                     height: 50,
@@ -179,6 +179,7 @@ class _RegisterViewState extends State<RegisterView> {
                           lastname: lastname.text,
                           email: email.text,
                           password: password.text,
+                       
                         );
                       }
                     },
